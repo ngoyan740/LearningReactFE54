@@ -1,0 +1,16 @@
+khởi tạo React :
+sudo npm i create-react-app -g
+
+folder dự án react (tên dự án react ko viết hoa) : create-react-app tenduan
+
+
+trỏ đến thư mục package.json. Chuột phải chạy terminal : npm start => build web chạy lên browser
+
+Extension sinh code tự động :
+- ES7 React/Redux/GraphQL/React-Native snippets
+
+Extension chuyển html sang html trong js:
+- html to JSX
+
+
+- Vào trong gitinore : xoá hết chừa lại .node-module 
