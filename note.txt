@@ -14,3 +14,9 @@ Extension chuyển html sang html trong js:
 
 
 - Vào trong gitinore : xoá hết chừa lại .node-module 
+
+
+**** Các bước thực hiện task Front end (React JS)
+1 - Dàn layout (hoàn chỉnh giao diện html css)
+2- Xác định nguồn dữ liệu thay đổi khi người dùng thao tác lên giao diện. Tổ chức lưu trữ trong state
+3- Xử lý sự kiện set lại giá trị cho state
