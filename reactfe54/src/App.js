@@ -12,6 +12,8 @@ import RenderWithMap from './Components/RenderWithMap/RenderWithMap';
 import BTRenderDSPhim from './Components/RenderWithMap/BTRenderDSPhim';
 import DemoProps from './Components/Props/DemoProps';
 import ProducListRCC from './Components/Props/ProducListRCC';
+import ProductList from './Components/Props/PropWithEvent/ProductList';
+import PropsWithEvent from './Components/Props/PropWithEvent/PropsWithEvent';
 
 function App() {
   return (
@@ -25,7 +27,8 @@ function App() {
       {/* <RenderWithMap /> */}
       {/* <BTRenderDSPhim /> */}
       {/* <DemoProps/> */}
-      <ProducListRCC />
+      {/* <ProducListRCC /> */}
+      <PropsWithEvent />
     </div>
   );
 }
