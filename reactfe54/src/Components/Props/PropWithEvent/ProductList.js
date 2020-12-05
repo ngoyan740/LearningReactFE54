@@ -6,6 +6,8 @@ import Product from './Product'
 
 export default class ProductList extends Component {
 
+    // Yếu tố Đặt state phải thỏa : cùng trên 1 giao diện chứa giỏ hàng & chứa nút xử lý (event: hover)
+   
     state = {
         //state là 1 object sẽ được thay đổi khi setState
         productDetail: productList[0],
@@ -68,6 +70,47 @@ export default class ProductList extends Component {
     }
 
 
+    // Định nghĩa sự kiện xóa giỏ hàng tại nơi chưa state giỏ hàng
+    deleteItem = (maSPClick) => {
+        console.log(maSPClick);
+        // Tạo 1 giỏ hàng mới giống giá trị giỏ hàng cũ, sau đó xử lý xóa trên giỡ hàng mới
+        // Sau đó gán lại giỏ hàng cũ bằng giỏ hàng mới
+        let gioHangCapNhat = [...this.state.cartObject];
+
+        let index = gioHangCapNhat.findIndex(spGH => spGH.maSP === maSPClick) ;
+        if (index !== -1) {
+            gioHangCapNhat.splice(index, 1);
+        }
+        // Gán lại giỏ hàng cũ bằng giở hàng mới
+        this.setState({
+            cartObject:gioHangCapNhat
+        })
+    }
+
+
+    // Tăng giảm số lượng sản phẩm tại nơi chứa state
+    //Định nghĩahàm thay đổi số lượng tại nơi chứa state số lwụog (số lượng nằm trong cart)
+    tangGiamSoLuong = (maSPClicked, soLuong) => {
+        // console.log('Mã sản phẩn :', maSPClicked, 'Số lượng :' ,soLuong);
+        
+        let gioHangCapNhat = [...this.state.cartObject];
+
+        //Tìm trong giỏ hàng có sản phầm có mã == với ản phẩm đc click hay ko sau đó + hoặc - số lượng
+
+        let spGioHang = gioHangCapNhat.find(spGH => spGH.maSP === maSPClicked);
+
+        //Tìm thấy sp trong giỏ hàng
+        if(spGioHang) {
+            spGioHang.soLuong += soLuong;
+        }
+        this.setState({
+            cartObject: gioHangCapNhat
+        })
+    
+    
+    }
+
+
     render() {
 
         //Bóc tách phần từ
@@ -78,7 +121,7 @@ export default class ProductList extends Component {
         return (
             <div>
                 {/* Modal Popup khi nhấn vào giỏ hàng  */}
-                <ModalPopUp cartProps={cartObject}/>
+                <ModalPopUp cartProps={cartObject} deleteItem={this.deleteItem} tangGiamSoLuong={this.tangGiamSoLuong}/>
 
                 <div className="row">
                     {this.renderProductListHandler()}

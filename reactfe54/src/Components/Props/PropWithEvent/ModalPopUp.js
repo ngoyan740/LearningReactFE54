@@ -1,6 +1,16 @@
 import React, { Component } from 'react'
 
 export default class ModalPopUp extends Component {
+
+    tinhTongTien = () => {
+        let tongTien = this.props.cartProps.reduce((tt, spGH, index) => {return tt += spGH.soLuong * spGH.giaBan;}, 0)
+
+        return tongTien.toLocaleString();
+
+    }
+
+
+
     render() {
         return (
             <div>
@@ -32,12 +42,31 @@ export default class ModalPopUp extends Component {
                                                     <img src={obj.hinhAnh} width="30" height="30"/>
                                                     </td>
                                                 <td>{obj.tenSP}</td>
-                                                <td>{obj.soLuong}</td>
-                                                <td>{obj.giaBan}</td>
-                                                <td>{obj.giaBan * obj.soLuong}</td>
+                                                <td><button className="btn btn-info mr-1" onClick={() => {
+                                                    // xử lý giảm
+                                                    this.props.tangGiamSoLuong(obj.maSP,-1);
+                                                }}>-</button>
+                                                    {obj.soLuong}
+                                                    <button className="btn btn-info ml-1" onClick={() => {
+                                                        // xử lý tăng
+                                                        this.props.tangGiamSoLuong(obj.maSP, 1);
+                                                    }}>+</button>
+                                                    </td>
+                                                <td>{obj.giaBan.toLocaleString()}</td>
+                                                <td>{(obj.giaBan * obj.soLuong).toLocaleString()}</td>
+                                                {/* Nhận sự kiện deleteItem thông qua props tên deleteItem */}
+                                                <td><button className="btn btn-danger" onClick={() => {this.props.deleteItem(obj.maSP)}}>Xóa</button></td>
                                             </tr>
 
                                         })}
+                                        <tfoot>
+                                            <tr>
+                                                <td colSpan="4"></td>
+                                                <td>Tổng tiền</td>
+                                                <td>{this.tinhTongTien()}</td>
+                                            </tr>
+                                            
+                                        </tfoot>
                                     </table>
                                 </div>
 

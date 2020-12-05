@@ -14,6 +14,7 @@ import DemoProps from './Components/Props/DemoProps';
 import ProducListRCC from './Components/Props/ProducListRCC';
 import ProductList from './Components/Props/PropWithEvent/ProductList';
 import PropsWithEvent from './Components/Props/PropWithEvent/PropsWithEvent';
+import BaiTapGioHangRedux from './BaiTapRedux/BaiTapGioHangRedux/BaiTapGioHangRedux';
 
 function App() {
   return (
@@ -28,7 +29,8 @@ function App() {
       {/* <BTRenderDSPhim /> */}
       {/* <DemoProps/> */}
       {/* <ProducListRCC /> */}
-      <PropsWithEvent />
+      {/* <PropsWithEvent /> */}
+      <BaiTapGioHangRedux />
     </div>
   );
 }

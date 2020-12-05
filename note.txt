@@ -20,3 +20,32 @@ Extension chuyển html sang html trong js:
 1 - Dàn layout (hoàn chỉnh giao diện html css)
 2- Xác định nguồn dữ liệu thay đổi khi người dùng thao tác lên giao diện. Tổ chức lưu trữ trong state
 3- Xử lý sự kiện set lại giá trị cho state
+
+
+CÀI ĐẶT REDUX :
+npm i redux
+npm i react-redux
+
+tạo 2 folder : redux & BaiTapRedux
+vào folder redux tạo file configStore.js
+vào index.js import :
+// Cấu hình redux
+import { Provider } from 'react-redux';
+import { store } from './redux/configStore';
+
+
+ReactDOM.render(
+
+  <Provider store={store}>
+
+    <App />
+
+  </Provider>,
+
+
+**** CÁC BƯỚC THỰC HIỆN KHI NHẬN ĐƯỢC TASK React
+1. Xây dựng giao diện (Dàn layout chia component)
+2. Xác định state (Giá trị thay đổi trên giao diện khi người dùng thao tác). Tổ chức lưu trữ dữ liệu (Dùng mảng hoặc object hoặc mảng object hăọc chuỗi hoặc số, ...)
+
+3. Xử lý thay đổi state khi event xảy ra
+
