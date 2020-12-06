@@ -1,6 +1,6 @@
 // file render ra sản phẩm 
 import React, { Component } from 'react'
-import productList from '../data/productList.json'
+import productList from '../../../BaiTapRedux/BaiTapGioHangRedux/data/productList.json'
 import ModalPopUp from './ModalPopUp'
 import Product from './Product'
 

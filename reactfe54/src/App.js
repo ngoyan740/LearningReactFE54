@@ -15,6 +15,7 @@ import ProducListRCC from './Components/Props/ProducListRCC';
 import ProductList from './Components/Props/PropWithEvent/ProductList';
 import PropsWithEvent from './Components/Props/PropWithEvent/PropsWithEvent';
 import BaiTapGioHangRedux from './BaiTapRedux/BaiTapGioHangRedux/BaiTapGioHangRedux';
+import BaiTapGame from './BaiTapRedux/BaiTapGame/BaiTapGame';
 
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
       {/* <DemoProps/> */}
       {/* <ProducListRCC /> */}
       {/* <PropsWithEvent /> */}
-      <BaiTapGioHangRedux />
+      {/* <BaiTapGioHangRedux /> */}
+      <BaiTapGame/>
     </div>
   );
 }

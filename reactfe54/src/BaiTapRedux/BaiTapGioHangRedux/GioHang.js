@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'; // Import thư viện connect của redux và xóa export refault
 
-export class GioHang extends Component {
-
+class GioHang extends Component {
+// xóa export default, viết phía dưới để kết nối với store state export
 
     render() {
         console.log("props gio hang :", this.props);
@@ -35,10 +35,14 @@ export class GioHang extends Component {
                                 <td>{sp.maSP}</td>
                                 <td>{sp.tenSP}</td>
                                 <td><img src={sp.hinhAnh} width="30" height="30" /></td>
-                                <td>{sp.soLuong}</td>
+                                <td>
+                                    <button className="btn btn-info mr-1" onClick={() => this.props.tangGiamSoLuong(sp.maSP, -1)}>-</button>
+                                    {sp.soLuong}
+                                    <button className="btn btn-info ml-1" onClick={() => {this.props.tangGiamSoLuong(sp.maSP, 1)}}>+</button>
+                                    </td>
                                 <td>{sp.giaBan}</td>
                                 <td>{sp.soLuong * sp.giaBan}</td>
-                                <td><button className="btn btn-danger">Xóa</button></td>
+                                <td><button className="btn btn-danger" onClick={() => this.props.xoaGioHang(sp.maSP)}>Xóa</button></td>
                             </tr>
                         })}
 
@@ -60,5 +64,34 @@ const mapStateToProps = (state) => { // state : đại diện cho rootReducer
 
 }
 
+const mapDispatchToProps = (dispatch) => {
+    //Hàm tạo ra 1 props gủi lên redux stỏe (tất cả reducer)
+    return {
+        xoaGioHang: (maSPClicked) => {
+            // console.log(maSPClicked);
+            // Đưa dữ liệu lên redux store (reducer)
+            const action = {
+                type: 'XOA_GIO_HANG',
+                maSPdcXoa: maSPClicked
+            }
+
+            // Dùng hàm dispatch gửi action lên reducer
+            dispatch(action)
+    
+        },
+
+        tangGiamSoLuong: (maSP, soLuong) => {
+            const action = {
+                type: 'TANG_GIAM_SO_LUONG',
+                maSPClicked: maSP,
+                soLuong: soLuong,
+            };
+            //Đưa lên reducer
+            dispatch(action);
+        }
+    }
+    
+}
+
 //Kết nối react componnent vối redux store tạo ra 1 componennt mới exprt ra ngoài
-export default connect(mapStateToProps)(GioHang);
+export default connect(mapStateToProps, mapDispatchToProps)(GioHang);

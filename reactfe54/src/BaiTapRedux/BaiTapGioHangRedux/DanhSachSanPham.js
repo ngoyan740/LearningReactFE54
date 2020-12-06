@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import SanPham from './SanPham'
-import dsSanPham from '../../Components/Props/data/productList.json';
+import dsSanPham from '../BaiTapGioHangRedux/data/productList.json';
 
 
 export default class DanhSachSanPham extends Component {
