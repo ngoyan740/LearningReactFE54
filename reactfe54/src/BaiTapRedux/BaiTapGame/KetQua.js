@@ -10,6 +10,7 @@ class KetQua extends Component {
 
         return (
             <div className="container text-center mt-2">
+                
                 <h1 className="display-4">BẠN CHỌN : <span className="display-4 text-success">{this.props.datCuoc ? 'TÀI' : 'XỈU'}</span></h1>
                 <h1 className="display-4">Số bàn thắng : <span className="display-4 text-success">{this.props.soBanThang}</span></h1>
                 <h1 className="display-4">Số bàn chơi : <span className="display-4 text-success">{this.props.soBanChoi}</span></h1>
